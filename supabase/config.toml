@@ -1,0 +1,50 @@
+# Supabase CLI configuration.
+#
+# `project_id` is the project ref taken from the project URL
+# (https://<ref>.supabase.co). With it in place, these commands work from this
+# folder without a separate `supabase link` step:
+#
+#   npx supabase db push
+#   npx supabase functions deploy voice
+#
+# The values in [api]/[db]/[studio]/[auth] only affect a local `supabase start`.
+
+project_id = "jtrgovlotqmxijlerbcy"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+
+# `npx supabase db push --include-seed` applies seed.sql after the migrations.
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173"]
+# The dashboard has no self sign-up; managers create users in the Supabase dashboard.
+enable_signup = false
+jwt_expiry = 3600
+
+[auth.email]
+enable_signup = false
+enable_confirmations = false
+
+# The voice demo is intentionally callable by signed-out visitors (the public
+# dashboard uses the anonymous key). Inputs are bounded and only demo call ids
+# are written. See supabase/functions/voice/index.ts.
+[functions.voice]
+verify_jwt = false

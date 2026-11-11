@@ -1,0 +1,25 @@
+VAANI RECOVERY — GITHUB UPLOAD PACKAGE
+
+Repository name suggestion: vaani-recovery
+Description: Vaani Recovery — voice-agent collections operations dashboard built with React, Vite, TypeScript and Supabase.
+
+GITHUB UPLOAD
+1. Create a new GitHub repository named vaani-recovery.
+2. Choose Public or Private as appropriate.
+3. Do not initialize with a README, .gitignore, or license (this ZIP already contains project files).
+4. Extract this ZIP on your computer.
+5. Open the extracted folder. Select all files and folders INSIDE it, including hidden files such as .gitignore and .nojekyll.
+6. Upload those items to the repository root using Add file > Upload files.
+7. Commit the upload.
+
+GITHUB PAGES
+The root index.html and root assets/ folder are the production frontend for GitHub Pages.
+In repository Settings > Pages, choose Deploy from a branch, branch main, folder /(root), then Save.
+The .nojekyll file prevents GitHub Pages from running Jekyll over this Vite project.
+
+IMPORTANT
+- Do not upload any .env files, passwords, API keys, node_modules, or Supabase CLI .temp data.
+- The Supabase Edge Function secret GNANI_API_KEY must be configured separately in Supabase Edge Function secrets. Never put it in GitHub.
+- VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY are needed at build time for the frontend. Configure them in your local .env when building. Do not put service-role keys or private secrets in VITE_ variables.
+- This package contains the already-built frontend at the repository root for GitHub Pages, plus the source project, Supabase migrations/functions, and dist output.
+- GitHub Pages only hosts the static frontend. It does not run Supabase functions or a voice backend.
